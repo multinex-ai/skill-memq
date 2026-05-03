@@ -1,0 +1,11 @@
+# MemQ Protocol Skill
+
+This package provides the `SKILL.md` configuration for the Multinex MemQ Protocol.
+
+## Capabilities
+- Teaches the AI how to use the MemQ MCP server tools (`mcp_memq_query_memory`, `mcp_memq_add_memory`, `mcp_memq_reflect_memory`).
+- Enforces a "Wake Up" routine to pull historical context before acting.
+- Enforces a "Sleep" routine to consolidate working memory into durable long-term storage.
+
+## Usage
+Inject `SKILL.md` into your LLM's system prompt. The agent will require access to the Multinex `memq` MCP server tools to fulfill the protocol.

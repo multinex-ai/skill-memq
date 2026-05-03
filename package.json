@@ -1,0 +1,25 @@
+{
+  "name": "@multinex/skill-memq",
+  "version": "1.0.0",
+  "description": "Multinex MemQ Protocol AI Skill. Teaches agents how to maximize sovereign memory utilization via MCP.",
+  "main": "SKILL.md",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Multinex AI <engineering@multinex.ai>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/multinex-ai/skill-memq.git"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "skill",
+    "multinex",
+    "memq",
+    "memory",
+    "mcp",
+    "context"
+  ]
+}
