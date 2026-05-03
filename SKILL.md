@@ -1,12 +1,41 @@
 ---
 name: memq-protocol
-description: Expert AI agent configuration for maximizing utilization of the MemQ sovereign memory layer via MCP.
+description: Expert AI agent configuration for maximizing utilization of the MemQ sovereign memory layer via MCP. Includes all MCP tools and lifecycle hook examples.
 tools:
+  - mcp_memq_health_check
+  - mcp_memq_memory_status
+  - mcp_memq_namespace_info
+  - mcp_memq_reunion
   - mcp_memq_mnemosyne_context
+  - mcp_memq_save_context
   - mcp_memq_add_memory
   - mcp_memq_query_memory
+  - mcp_memq_search_memory
+  - mcp_memq_recent_memory
   - mcp_memq_reflect_memory
-  - mcp_memq_save_context
+  - mcp_memq_brain_associate
+  - mcp_memq_brain_consolidate_sleep
+  - mcp_memq_brain_discover
+  - mcp_memq_brain_predict
+  - mcp_memq_brain_recall_episode
+  - mcp_memq_brain_reinforce
+  - mcp_memq_bridge_sync
+  - mcp_memq_commons_promotion_status
+  - mcp_memq_commons_resonance
+  - mcp_memq_commons_retract
+  - mcp_memq_commons_search
+  - mcp_memq_hybrid_retrieve
+  - mcp_memq_journal_distill
+  - mcp_memq_journal_record
+  - mcp_memq_journal_search
+  - mcp_memq_plan_state_checkpoint
+  - mcp_memq_plan_state_read
+  - mcp_memq_plan_state_resume
+  - mcp_memq_plan_state_write
+  - mcp_memq_reflection_handoff
+  - mcp_memq_slice_project
+  - mcp_memq_slicer_slice
+  - mcp_memq_temporal_graph_query
 ---
 
 You are operating with the **MemQ Protocol Skill**. 
@@ -15,30 +44,50 @@ Your goal is to ensure long-term continuity, contextual awareness, and continuou
 ## Primary Objective
 You must never operate amnesiac. You must recall relevant context before taking action, and you must durably store outcomes, decisions, and knowledge after taking action.
 
-## MemQ Utilization Protocol
+## Tool Categories and Usage
 
-### 1. Session Initialization (The "Wake Up" Routine)
-Before starting any significant research, planning, or execution, you MUST load context.
-- **Action:** Call `mcp_memq_mnemosyne_context` or `mcp_memq_query_memory` with the objective of your current task.
-- **Why:** This ensures you don't repeat mistakes or duplicate work that prior sessions have already solved.
+### 1. General & System Status
+Tools: `mcp_memq_health_check`, `mcp_memq_memory_status`, `mcp_memq_namespace_info`, `mcp_memq_reunion`
+- **When to use:** Use to check remaining quota, confirm connection, and verify the currently authenticated namespace bounds.
 
-### 2. Checkpointing (During Execution)
-When you make a significant architectural decision, complete a complex migration, or resolve a difficult bug, you must save it.
-- **Action:** Call `mcp_memq_save_context` or `mcp_memq_add_memory`.
-- **Typing Guidelines:**
-  - `type: "episodic"` — For timeline events (e.g., "Deployed version 1.2 to production").
-  - `type: "semantic"` — For hard facts or rules (e.g., "The billing API requires an idempotency key").
-  - `type: "checkpoint"` — For state snapshots (e.g., "Completed phase 1 of the migration").
-- **Tagging:** Always include relevant tags (e.g., `["bugfix", "billing-manager", "critical"]`).
+### 2. Context & Core Memory Operations
+Tools: `mcp_memq_mnemosyne_context`, `mcp_memq_save_context`, `mcp_memq_add_memory`, `mcp_memq_query_memory`, `mcp_memq_search_memory`, `mcp_memq_recent_memory`
+- **When to use:** 
+  - `mcp_memq_mnemosyne_context`: Call this at the start of any new session or task to load prior context.
+  - `mcp_memq_query_memory` / `mcp_memq_search_memory`: Semantic searches to find specific past knowledge.
+  - `mcp_memq_save_context` / `mcp_memq_add_memory`: To write new factual knowledge, milestones, or rules to your private namespace.
 
-### 3. Failure Recording
-If you encounter an error and spend time debugging it, you must record the failure and the solution.
-- **Action:** Call `mcp_memq_add_memory` with `type: "episodic"` and tags `["failure", "resolution"]`.
-- **Why:** So future agents (or yourself in a future session) can query the error message and immediately know the fix.
+### 3. Brain & Reflection Functions
+Tools: `mcp_memq_brain_associate`, `mcp_memq_brain_consolidate_sleep`, `mcp_memq_brain_discover`, `mcp_memq_brain_predict`, `mcp_memq_brain_recall_episode`, `mcp_memq_brain_reinforce`, `mcp_memq_reflect_memory`
+- **When to use:** 
+  - `mcp_memq_reflect_memory` / `mcp_memq_brain_consolidate_sleep`: At the end of a long session to compress working memory.
+  - `mcp_memq_brain_predict`: To forecast next actions or risks from recent history.
+  - `mcp_memq_brain_discover`: Broad search across Mnemosyne pathways based on an objective.
 
-### 4. Consolidation (The "Sleep" Routine)
-At the end of a very long or complex session, trigger reflection to compress your working memory into long-term durable concepts.
-- **Action:** Call `mcp_memq_reflect_memory`.
+### 4. Journaling & Auditing
+Tools: `mcp_memq_journal_record`, `mcp_memq_journal_search`, `mcp_memq_journal_distill`
+- **When to use:** 
+  - `mcp_memq_journal_record`: Log specific decisions, checkpoints, or failure/resolution pairs.
+  - `mcp_memq_journal_distill`: Distill journal history into reinforcement patterns.
 
-## Cross-Session Continuity
-Always assume you are part of a swarm. The memory you write today will be read by another agent tomorrow. Ensure your `text` content is concise, highly structured, and provides the exact context another AI would need to resume your work.
+### 5. Plan State & Orchestration
+Tools: `mcp_memq_plan_state_write`, `mcp_memq_plan_state_read`, `mcp_memq_plan_state_checkpoint`, `mcp_memq_plan_state_resume`, `mcp_memq_bridge_sync`
+- **When to use:** When breaking down a large task, persist your plan states to durable storage so another agent could pick up exactly where you left off.
+
+### 6. Commons & Hive-Mind (Shared Memory)
+Tools: `mcp_memq_commons_search`, `mcp_memq_commons_resonance`, `mcp_memq_commons_promotion_status`, `mcp_memq_commons_retract`
+- **When to use:** To search the collective shared `_commons` knowledge pool when private namespace memory is insufficient.
+
+### 7. Graph & Advanced
+Tools: `mcp_memq_temporal_graph_query`, `mcp_memq_slicer_slice`, `mcp_memq_slice_project`, `mcp_memq_hybrid_retrieve`
+- **When to use:** For deep temporal relation mapping or breaking large text into semantic chunks for memory ingestion.
+
+## Lifecycle Hooks Integration
+
+To make integration conductive and highly structured, this skill includes robust **EventEmitter-based hooks**. By connecting these hooks to your agent's lifecycle events, you can automatically manage context and durability without polluting core logic.
+
+See the `hooks/` directory for implementation details:
+- **`hooks/pre-run.ts`**: Connects to `agent.on('start')`. Wakes the agent up by hydrating `mnemosyne_context`.
+- **`hooks/post-run.ts`**: Connects to `agent.on('end')`. Triggers a conductive `reflect_memory` process, cleanly extracting and storing achievements and state.
+- **`hooks/on-error.ts`**: Connects to `agent.on('error')`. Automatically fires a `journal_record` of type `failure_record`.
+- **`hooks/teamspace-handoff.ts`**: Connects to `agent.on('handoff')`. Facilitates seamless developer handoff by explicitly executing `mcp_memq_reflection_handoff`, moving architectural decisions and execution summaries into the shared MemQ teamspace.
