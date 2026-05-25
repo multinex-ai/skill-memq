@@ -78,6 +78,16 @@ Tools: `mcp_memq_plan_state_write`, `mcp_memq_plan_state_read`, `mcp_memq_plan_s
 Tools: `mcp_memq_commons_search`, `mcp_memq_commons_resonance`, `mcp_memq_commons_promotion_status`, `mcp_memq_commons_retract`
 - **When to use:** To search the collective shared `_commons` knowledge pool when private namespace memory is insufficient.
 
+#### Global Ingestion Channels & Security Governance Gates
+*   **Active Channels**: Ingests high-value, trending, and factual updates across active lanes:
+    *   **Stack Overflow**: Trending developer solutions and bug fixes.
+    *   **Silicon Valley AI News**: Trending cognitive architecture progress and breakthroughs.
+    *   **Latest News Events & Business Intelligence**: Macro-economic trends and strategic market signals.
+    *   **Palo Alto Unit 42**: High-fidelity security vulnerability maps and active threat threat-modeling feeds.
+*   **Governance & Redaction Gates**: To prevent data leakages and injection vectors, any segment target for automated promotion must pass strict pre-filters:
+    *   **PII & PHI Redaction**: Personally Identifiable Information (emails, IPs, SSNs) and Protected Health Information (PHI) are scrubbed completely before publication.
+    *   **Security Gate check**: Input data must pass validation to ensure it carries zero executable command shells or prompt injections.
+
 ### 7. Graph & Advanced
 Tools: `mcp_memq_temporal_graph_query`, `mcp_memq_slicer_slice`, `mcp_memq_slice_project`, `mcp_memq_hybrid_retrieve`
 - **When to use:** For deep temporal relation mapping or breaking large text into semantic chunks for memory ingestion.
