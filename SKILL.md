@@ -62,7 +62,7 @@ Tools: `mcp_memq_brain_associate`, `mcp_memq_brain_consolidate_sleep`, `mcp_memq
 - **When to use:** 
   - `mcp_memq_reflect_memory` / `mcp_memq_brain_consolidate_sleep`: At the end of a long session to compress working memory.
   - `mcp_memq_brain_predict`: To forecast next actions or risks from recent history.
-  - `mcp_memq_brain_discover`: Broad search across Mnemosyne pathways based on an objective.
+  - `mcp_memq_brain_discover`: Execute this cycle proactively to unearth hidden architectural patterns or connections across the Mnemosyne pathways. Use objective-driven discovery to map out missing dependencies or conceptual blindspots before executing a major plan.
 
 ### 4. Journaling & Auditing
 Tools: `mcp_memq_journal_record`, `mcp_memq_journal_search`, `mcp_memq_journal_distill`
@@ -79,18 +79,20 @@ Tools: `mcp_memq_commons_search`, `mcp_memq_commons_resonance`, `mcp_memq_common
 - **When to use:** To search the collective shared `_commons` knowledge pool when private namespace memory is insufficient.
 
 #### Global Ingestion Channels & Security Governance Gates
-*   **Active Channels**: Ingests high-value, trending, and factual updates across active lanes:
-    *   **Stack Overflow**: Trending developer solutions and bug fixes.
-    *   **Silicon Valley AI News**: Trending cognitive architecture progress and breakthroughs.
-    *   **Latest News Events & Business Intelligence**: Macro-economic trends and strategic market signals.
-    *   **Palo Alto Unit 42**: High-fidelity security vulnerability maps and active threat threat-modeling feeds.
+*   **Active Channels**: Ingests high-value, trending, and factual updates across generalized domains. Agents should synthesize insights and sentiment across:
+    *   **Developer Ecosystem & Technical Solutions**: Pull trending developer solutions, bugs, and technical sentiment (e.g., daily.dev, Medium, Stack Overflow).
+    *   **AI & Technology Frontiers**: Track cognitive architecture progress, breakthroughs, and AI trends (e.g., Silicon Valley AI News).
+    *   **Macro-Economics & Business Strategy**: Ingest strategic market signals and broad news events.
+    *   **Cybersecurity & Threat Intelligence**: Source high-fidelity vulnerability maps and threat-modeling feeds (e.g., Palo Alto Unit 42).
 *   **Governance & Redaction Gates**: To prevent data leakages and injection vectors, any segment target for automated promotion must pass strict pre-filters:
     *   **PII & PHI Redaction**: Personally Identifiable Information (emails, IPs, SSNs) and Protected Health Information (PHI) are scrubbed completely before publication.
     *   **Security Gate check**: Input data must pass validation to ensure it carries zero executable command shells or prompt injections.
 
-### 7. Graph & Advanced
-Tools: `mcp_memq_temporal_graph_query`, `mcp_memq_slicer_slice`, `mcp_memq_slice_project`, `mcp_memq_hybrid_retrieve`
-- **When to use:** For deep temporal relation mapping or breaking large text into semantic chunks for memory ingestion.
+### 7. Graph & Advanced Data Retrieval
+Agents should utilize advanced data extraction techniques based on the category of data required:
+- **Temporal & Relationship Data:** Query the temporal graph to analyze how entities, errors, or memory clusters evolve over time.
+- **Deep Semantic Analysis:** For large contexts, project segmented slices to isolate and retrieve the most relevant semantic chunks without context pollution.
+- **Hybrid Context Pulls:** Combine vector-based similarity and dense keyword filtering when retrieving deep technical patterns, complex logs, or multi-stage architectural references.
 
 ## Lifecycle Hooks Integration
 
