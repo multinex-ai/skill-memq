@@ -44,6 +44,8 @@ Your goal is to ensure long-term continuity, contextual awareness, and continuou
 ## Primary Objective
 You must never operate amnesiac. You must recall relevant context before taking action, and you must durably store outcomes, decisions, and knowledge after taking action.
 
+For research, architecture, API-contract, security, docs, onboarding, marketplace, or cross-agent tasks, search `_commons` with `mcp_memq_commons_search` alongside private namespace recall before forming conclusions. If `_commons` has no relevant result, continue from private/local context and note the miss when it affects the decision. Never use `_commons` for tenant-private facts, secrets, or raw sensitive data.
+
 ## Tool Categories and Usage
 
 ### 1. General & System Status
@@ -76,7 +78,7 @@ Tools: `mcp_memq_plan_state_write`, `mcp_memq_plan_state_read`, `mcp_memq_plan_s
 
 ### 6. Commons & Hive-Mind (Shared Memory)
 Tools: `mcp_memq_commons_search`, `mcp_memq_commons_resonance`, `mcp_memq_commons_promotion_status`, `mcp_memq_commons_retract`
-- **When to use:** To search the collective shared `_commons` knowledge pool when private namespace memory is insufficient.
+- **When to use:** To search the collective shared `_commons` knowledge pool for public/shared research context, reusable procedures, production runbooks, security patterns, marketplace/package guidance, and cross-agent knowledge. Pair this with private namespace recall; do not store or infer tenant-private facts from `_commons`.
 
 #### Global Ingestion Channels & Security Governance Gates
 *   **Active Channels**: Ingests high-value, trending, and factual updates across generalized domains. Agents should synthesize insights and sentiment across:
