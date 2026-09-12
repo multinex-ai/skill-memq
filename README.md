@@ -37,6 +37,7 @@ This repository fully supports the `llms.txt` standard. LLMs can directly infer 
 - **Session Initialization:** Instructs the agent to query MemQ context before starting work.
 - **Semantic vs Episodic Rules:** Provides clear guidelines on when to store facts vs. events.
 - **Failure Recording:** Mandates that the agent logs debugging resolutions to prevent future amnesia.
+- **Team & Namespace Handoff:** Guides multiple developers/agents sharing one namespace — write attribution, namespace-vs-authentication scoping, and promotion-into-`_commons` discipline. See [`docs/TEAM_NAMESPACE.md`](./docs/TEAM_NAMESPACE.md).
 
 ---
 *Built with precision by the [Multinex AI](https://multinex.ai) Engineering Team.*
