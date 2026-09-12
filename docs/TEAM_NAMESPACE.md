@@ -18,14 +18,15 @@ inferred from names):
   chooses.
 - `plan_state_write`, `plan_state_read`, `plan_state_checkpoint`,
   `plan_state_resume`, `bridge_sync`, `slice_project`, `hybrid_retrieve`, and
-  `temporal_graph_query` **do** take an explicit `namespace` string. These are
-  also the tools whose own descriptions frame them around handoff and
-  resumption by a different actor than the one who wrote the state.
+  `temporal_graph_query` **do** take an explicit `namespace` string. An explicit namespace
+  selects a permitted scope; it does not grant access beyond the authenticated
+  identity. Plan-state tools provide the checkpoint and resume contract.
 - `add_memory` and `journal_record` carry `agent_id` / `actor_id`, `tags`,
   `task_id`, and `metadata` — the fields available for attributing and
   filtering a multi-contributor namespace.
-- `memory_type` is a fixed enum everywhere it appears:
+- `add_memory.memory_type` and `recent_memory.filters.memory_type` use:
   `episodic | semantic | procedural | checkpoint | hybrid | reflection`.
+- `journal_record` instead requires `type`: `decision_point | failure_record | reflection | checkpoint`; it does not accept `memory_type`.
 - `commons_retract` is admin-gated and supports `dry_run`; treat any
   `_commons` retraction as a reversible-but-audited action, not a quiet
   delete.
@@ -57,7 +58,7 @@ sharing a namespace.
 
 | Field | Use it for |
 |---|---|
-| `agent_id` / `observation.actor_id` | A stable per-developer or per-agent identity — an email, a fixed handle, never a session ID that changes each run. |
+| `agent_id` / `observation.actor_id` | A stable non-PII per-developer or per-agent handle, never an email or a session ID that changes each run. |
 | `tags` | Prefixed, filterable groupings: `project:<name>`, `component:<area>`, `dev:<handle>`, plus free-form topic tags. |
 | `task_id` | Everything belonging to one unit of work, so a teammate can pull the full set with one filtered query. |
 | `memory_type` | A deliberate choice from the enum, not a default — `episodic` for "this happened," `semantic` for "this is durably true," `procedural` for "here's how," `checkpoint` for a resumable snapshot. |
